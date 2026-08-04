@@ -8,4 +8,4 @@
 ![Status](https://img.shields.io/badge/status-active-success)
 
 ---
-...Under development...
+..Under development..
