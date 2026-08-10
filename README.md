@@ -20,4 +20,3 @@ Home API index
 
 	GET /api
 	----- Data Faker | Home Api | Index -----
-
