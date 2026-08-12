@@ -35,3 +35,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+### Arquivo de configuracao para variaveis de ambiente env venv
+.env
+.env.*
+
