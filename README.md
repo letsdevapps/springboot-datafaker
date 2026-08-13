@@ -20,13 +20,13 @@ Expliquei 3 formas para inicializar a imagem com o banco de dados, escolha 1 del
 
 1. Iniciar a database diretamente
 
-    docker run -d \
-    --name data-faker-database \
-    -e POSTGRES_DB=datafaker \
-    -e POSTGRES_USER=postgres \
-    -e POSTGRES_PASSWORD=postgres \
-    -p 5432:5432 \
-    postgres:16
+	    docker run -d \
+	    --name data-faker-database \
+	    -e POSTGRES_DB=datafaker \
+	    -e POSTGRES_USER=postgres \
+	    -e POSTGRES_PASSWORD=postgres \
+	    -p 5432:5432 \
+	    postgres:16
 
 Isso cria e inicia:
 
@@ -38,20 +38,20 @@ Porta:     5432
 
 2. Iniciar a database pelo arquivo de configuração `Dockerfile-database`
 
-    docker build -f Dockerfile-database -t data-faker-database .
+    	docker build -f Dockerfile-database -t data-faker-database .
     
-    docker run -d \
-    --name data-faker-database \
-    -p 5432:5432 \
-    data-faker-database
+	    docker run -d \
+	    --name data-faker-database \
+	    -p 5432:5432 \
+	    data-faker-database
 
 3. Iniciar a database pelo arquivo de configuração de variaveis de ambiente `env`
 
-    docker run -d \ 
-    --name data-faker-database \
-    --env-file .env-ex \
-    -p 5432:5432 \
-    postgres:16
+	    docker run -d \ 
+	    --name data-faker-database \
+	    --env-file .env-ex \
+	    -p 5432:5432 \
+	    postgres:16
 
 ## API Endpoints
 
