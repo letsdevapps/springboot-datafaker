@@ -20,13 +20,18 @@ Expliquei 3 formas para inicializar a imagem com o banco de dados, escolha 1 del
 
 1. Iniciar a database diretamente
 
+		docker network create data-faker-network
+
 	    docker run -d \
 	    --name data-faker-database \
+	    --network data-faker-network \
 	    -e POSTGRES_DB=datafaker \
 	    -e POSTGRES_USER=postgres \
 	    -e POSTGRES_PASSWORD=postgres \
 	    -p 5432:5432 \
 	    postgres:16
+
+		docker exec -it data-faker-database psql -U postgres -d datafaker
 
 Isso cria e inicia:
 
