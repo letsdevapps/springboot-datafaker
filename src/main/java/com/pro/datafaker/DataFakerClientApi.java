@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pro.model.Client;
@@ -26,7 +27,7 @@ public class DataFakerClientApi {
 		return ResponseEntity.ok(clientService.findTop10ByOrderByIdAsc());
 	}
 
-	@GetMapping({"", "/"})
+	@GetMapping({ "", "/" })
 	public ResponseEntity<Client> getClients() {
 		@SuppressWarnings("deprecation")
 		Faker faker = new Faker(new Locale("pt-BR"));
@@ -42,5 +43,10 @@ public class DataFakerClientApi {
 		client.setCellPhone(faker.phoneNumber().cellPhone());
 
 		return ResponseEntity.ok(client);
+	}
+
+	@GetMapping("/add-seed")
+	public ResponseEntity<List<Client>> addSeed(@RequestParam(defaultValue = "0", value = "quantity") int quantity) {
+		return ResponseEntity.ok(clientService.addSeed(quantity));
 	}
 }
